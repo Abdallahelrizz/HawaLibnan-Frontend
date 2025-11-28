@@ -25,7 +25,7 @@ function ProfileCard() {
     const userId = storedUser.id;
 
     // Profile
-    const profilePromise = fetch(`http://localhost:3000/api/users/${userId}`)
+    const profilePromise = fetch(`https://hawalibnan-production.up.railway.app/api/users/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);
@@ -34,7 +34,7 @@ function ProfileCard() {
       });
 
     // Posts
-    const postsPromise = fetch(`http://localhost:3000/api/posts?user_id=${userId}`)
+    const postsPromise = fetch(`https://hawalibnan-production.up.railway.app/api/posts?user_id=${userId}`)
       .then((res) => res.json())
       .then((allPosts) => {
         const mine = allPosts.filter((p) => String(p.user_id) === String(userId));
@@ -53,7 +53,7 @@ function ProfileCard() {
     setSaving(true);
     setError(null);
 
-    fetch("http://localhost:3000/api/users/updateProfile", {
+    fetch("https://hawalibnan-production.up.railway.app/api/users/updateProfile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

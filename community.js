@@ -10,7 +10,7 @@ async function loadPosts() {
     const userId = user && user.id ? user.id : 0;
 
     const res = await fetch(
-      `http://localhost:3000/api/posts?user_id=${userId}`
+      `https://hawalibnan-production.up.railway.app/api/posts?user_id=${userId}`
     );
     if (!res.ok) {
       console.error("Failed to load posts:", res.status);
@@ -117,7 +117,7 @@ async function deletePost(id) {
   if (!ok) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    const res = await fetch(`https://hawalibnan-production.up.railway.app/api/posts/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: user.id })
@@ -154,7 +154,7 @@ async function openThread(i) {
 
   try {
     const res = await fetch(
-      `http://localhost:3000/api/posts/${current.dbId}/comments`
+      `https://hawalibnan-production.up.railway.app/api/posts/${current.dbId}/comments`
     );
     const data = await res.json();
 
@@ -196,7 +196,7 @@ function setupEventListeners() {
       const endpoint = isLiked ? "unlike" : "like";
 
       try {
-        const res = await fetch(`http://localhost:3000/api/posts/${endpoint}`, {
+        const res = await fetch(`https://hawalibnan-production.up.railway.app/api/posts/${endpoint}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -276,7 +276,7 @@ function setupEventListeners() {
       const user = getUser();
 
       try {
-        const res = await fetch("http://localhost:3000/api/posts/comment", {
+        const res = await fetch("https://hawalibnan-production.up.railway.app/api/posts/comment", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -346,7 +346,7 @@ async function addPostToServer(caption, imageUrl) {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/api/posts", {
+    const res = await fetch("https://hawalibnan-production.up.railway.app/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

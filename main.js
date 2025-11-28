@@ -54,7 +54,7 @@ function isValidUrl(value) {
 // Load places from API
 async function loadPlaces() {
   try {
-    const res = await fetch("http://localhost:3000/api/places");
+    const res = await fetch("https://hawalibnan-production.up.railway.app/api/places");
     if (!res.ok) {
       console.error("Failed to load places:", res.status);
       return;
@@ -123,7 +123,7 @@ async function confirmDeletePlace(placeId, placeName) {
   if (!confirmed) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/places/${placeId}`, {
+    const res = await fetch(`https://hawalibnan-production.up.railway.app/api/places/${placeId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: user.id }),
@@ -148,7 +148,7 @@ async function confirmDeletePlace(placeId, placeName) {
 // Open modal with place details and reviews
 async function openModal(placeId) {
   try {
-    const res = await fetch(`http://localhost:3000/api/places/${placeId}`);
+    const res = await fetch(`https://hawalibnan-production.up.railway.app/api/places/${placeId}`);
     if (!res.ok) {
       console.error("Failed to load place:", res.status);
       return;
@@ -233,7 +233,7 @@ function addCommentForm(placeId) {
     if (!txt) return;
 
     try {
-      const res = await fetch("http://localhost:3000/api/places/review", {
+      const res = await fetch("https://hawalibnan-production.up.railway.app/api/places/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -354,7 +354,7 @@ addForm?.addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/api/places", {
+    const res = await fetch("https://hawalibnan-production.up.railway.app/api/places", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

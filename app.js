@@ -123,7 +123,7 @@ document.addEventListener("submit", async (e) => {
     const password = document.getElementById("loginPassword").value;
 
     try {
-      const res = await fetch("http://localhost:3000/api/users/login", {
+      const res = await fetch("https://hawalibnan-production.up.railway.app/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
@@ -162,7 +162,7 @@ document.addEventListener("submit", async (e) => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/users/signup", {
+      const res = await fetch("https://hawalibnan-production.up.railway.app/api/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password: pass })
@@ -175,7 +175,7 @@ document.addEventListener("submit", async (e) => {
 
       // Auto-login after successful signup
       try {
-        const loginRes = await fetch("http://localhost:3000/api/users/login", {
+        const loginRes = await fetch("https://hawalibnan-production.up.railway.app/api/users/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password: pass })
