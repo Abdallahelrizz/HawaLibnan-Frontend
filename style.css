@@ -1,0 +1,985 @@
+/* Styles for :root */
+:root{
+  --bg: #ffffff;
+  --panel: #f6f8f6;
+  --card: #ffffff;
+  --text: #101612;
+  --muted: #4a6a55;
+  --border: #e5ece7;
+  --brand: #2E7D32;
+  --brand-2: #43A047;
+  --brand-3: #66BB6A;
+  --accent: #1B5E20;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"]{
+  --bg: #0f1a12;
+  --panel: #121416;
+  --card: #16191d;
+  --text: #e6f6ea;
+  --muted: #a8c7b1;
+  --border: #223026;
+  --brand: #2E7D32;
+  --brand-2: #66BB6A;
+  --brand-3: #81C784;
+  --accent: #A5D6A7;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Styles for html */
+html {
+  font-size: 15px; 
+  zoom: 0.95; 
+}
+
+/* Styles for * */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global page styling — background and base font rules */
+html,
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Styles for a */
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Styles for img */
+img{
+  max-width: 100%;
+  display: block;
+}
+
+/* Styles for .hide */
+.hide{
+  display: none !important;
+}
+
+/* Styles for .brand */
+.brand{
+  font-family: "Montserrat Alternates", Inter, system-ui;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Styles for .brand-text */
+.brand-text{
+  font-size: 20px;
+}
+
+/* Styles for .brand-icon */
+.brand-icon{
+  width: 22px;
+  height: 22px;
+}
+
+/* Navbar styling — sticky header with smooth background transitions */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: color-mix(in oklab, var(--bg), #000 8%);
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.3s ease, background 0.3s ease;
+  transform: translateY(0);
+}
+
+/* Inner navbar layout — aligns logo and navigation links */
+.nav-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+/* Navigation links */
+.links{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.links a{
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  transition: all 0.15s ease;
+}
+
+.links a:hover{
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+.links .spacer{
+  flex: 1;
+}
+
+.links a.active{
+  border: 1px solid #fff;
+  color: #fff;
+  background: var(--brand);
+  box-shadow: var(--shadow);
+}
+
+/* Styles for .nav-cta */
+.nav-cta{
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 10px;
+}
+
+/* Styles for .nav-cta:hover */
+.nav-cta:hover{
+  border-color: var(--brand-2);
+  color: var(--text);
+}
+
+/* Button styles */
+.signup-btn{
+  background: var(--brand);
+  color: #fff !important;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.signup-btn:hover{
+  filter: brightness(1.05);
+}
+
+.btn{
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn.primary{
+  background: var(--brand);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn.primary:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn.ghost{
+  background: transparent;
+}
+
+.btn.small{
+  padding: 6px 10px;
+}
+
+/* Styles for .addplace */
+.addplace{
+  border-color: var(--brand-2);
+  color: var(--brand-2);
+}
+
+/* Styles for .addplace:hover */
+.addplace:hover{
+  background: var(--brand-2);
+  color: #fff;
+}
+
+[data-theme="dark"] .btn.ghost{
+  color: var(--accent);
+}
+
+[data-theme="dark"] .btn.ghost:hover{
+  background: var(--brand-3);
+  color: #fff;
+}
+
+/* Styles for .home .hero */
+.home .hero{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: url("images/hero.jpg") center/cover no-repeat;
+  padding: 0 16px;
+}
+
+/* Styles for .home .hero::before */
+.home .hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Styles for .hero-left */
+.hero-left{
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+/* Styles for .hero-left h1 */
+.hero-left h1{
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+/* Styles for .hero-left p */
+.hero-left p{
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* Styles for .hero-actions */
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Styles for .hero-right img */
+.hero-right img{
+  display: none;
+}
+
+/* Styles for .page */
+.page{
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Styles for .page-title */
+.page-title{
+  font-size: 30px;
+  margin: 6px 0 6px;
+}
+
+/* Styles for .page-sub */
+.page-sub{
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+/* Styles for .page-head */
+.page-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styles for .search-row */
+.search-row{
+  display: flex;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+/* Styles for .search-row input,
+.search-row select */
+.search-row input,
+.search-row select{
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+/* Styles for .grid */
+.grid{
+  display: grid;
+  gap: 14px;
+}
+
+/* Card styling — containers for grouped content */
+.grid.cards{
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* Card styling */
+.card{
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+}
+
+.card img{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card .body{
+  padding: 12px;
+}
+
+.card .title{
+  font-weight: 800;
+  margin-bottom: 4px;
+  font-family: "Montserrat Alternates", Inter;
+}
+
+.card .meta{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/*With the help of Chatgpt for the hover effect*/
+/* Category section — grid items and hover effects */
+.categories-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+/* Category section — grid items and hover effects */
+.cat-row{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 14px;
+  padding: 1.8rem 1rem;
+  color: #fff;
+  overflow: hidden;
+  transition: background 0.4s ease, filter 0.4s ease, transform 0.35s ease;
+}
+
+/* Category section — grid items and hover effects */
+.cat-icon{
+  font-size: 1.9rem;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  z-index: 2;
+}
+
+/* Category section — grid items and hover effects */
+.cat-row h3 a{
+  color: #fff;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 2;
+  position: relative;
+}
+
+/* Category section — grid items and hover effects */
+.cat-row p{
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 0.3rem;
+  z-index: 2;
+  position: relative;
+}
+
+/* Category section — grid items and hover effects */
+.cat-reveal{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: "Montserrat Alternates", sans-serif;
+  opacity: 0;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0 1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+/* Category section — grid items and hover effects */
+.cat-row:hover .cat-reveal{
+  opacity: 1;
+  transform: scale(1.02);
+  transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s; 
+}
+
+/* Category section — grid items and hover effects */
+.cat-row h3,
+.cat-row p,
+.cat-row .cat-icon{
+  transition: opacity 0.4s ease;
+}
+
+/* Category section — grid items and hover effects */
+.cat-row:hover h3,
+.cat-row:hover p,
+.cat-row:hover .cat-icon{
+  opacity: 0;
+}
+
+/* Category section — grid items and hover effects */
+.cat-row:hover .cat-reveal{
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* Category colors */
+.cat-row.beach{ background: #2196f3; }
+.cat-row.cave{ background: #78909c; }
+.cat-row.mountain{ background: #388e3c; }
+.cat-row.historic{ background: #8d6e63; }
+.cat-row.city{ background: #5c6bc0; }
+.cat-row.valley{ background: #ef8e44; }
+.cat-row.souk{ background: #fb8c00; }
+.cat-row.restaurant{ background: #e74c3c; }
+.cat-row.nightlife{ background: #9c27b0; }
+.cat-row.park{ background: #4caf50; }
+
+.cat-row.beach:hover{ background: #64b5f6; }
+.cat-row.cave:hover{ background: #90a4ae; }
+.cat-row.mountain:hover{ background: #66bb6a; }
+.cat-row.historic:hover{ background: #a1887f; }
+.cat-row.city:hover{ background: #7986cb; }
+.cat-row.valley:hover{ background: #f5b26b; }
+.cat-row.souk:hover{ background: #ffa726; }
+.cat-row.restaurant:hover{ background: #ef6f63; }
+.cat-row.nightlife:hover{ background: #ba68c8; }
+.cat-row.park:hover{ background: #81c784; }
+
+/* Responsive rules — adjusts layout for mobile */
+@media (max-width: 700px){
+  .cat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cat-reveal{
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
+
+.banner{
+  width: 100%;
+  height: 200px;
+  border-radius: 18px;
+  margin-bottom: 10px;
+}
+
+/* Feed layout */
+.feed{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 10px;
+  justify-items: center;
+}
+
+/* Community feed - Grid layout */
+.feed.scroll-feed{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 10px;
+  justify-items: center;
+}
+
+/* Styles for .post */
+.post{
+  display: flex;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Styles for .post img */
+.post img{
+  width: 180px;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Post body styling */
+.post-body{
+  padding: 10px 14px 16px;
+  line-height: 1.4;
+}
+
+.post-body h3{
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* ==============================
+   Community Feed — Insta layout - Help of ChatGPT
+   ============================== */
+.post.full {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 350px;          /* narrower, more “Insta” */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.post.full img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;              /* keep all images square */
+  object-fit: cover;                /* crop nicely inside square */
+  object-position: center center;   /* center focus */
+  border-bottom: 1px solid var(--border);
+  background: #000;
+}
+
+
+.post-header {
+  padding: 10px 14px;
+  font-weight: 700;
+  font-family: "Montserrat Alternates", Inter;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteBtn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #c0392b;
+}
+
+
+
+
+/* Add post button */
+#addPostBtn{
+  margin-left: auto;
+}
+
+/* Modal form labels */
+.modal-content.narrow form label{
+  font-weight: 600;
+}
+
+/* Masonry layout */
+.masonry{
+  column-count: 3;
+  column-gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Masonry cards */
+.masonry .card{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.masonry .card img{
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.masonry .card:hover img{
+  transform: scale(1.05);
+  filter: brightness(70%);
+}
+
+.masonry .card .overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  font-weight: 700;
+  font-family: "Montserrat Alternates", sans-serif;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.masonry .card:hover .overlay{
+  opacity: 1;
+}
+
+.card-delete-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 5;
+}
+
+[data-theme="light"] .card-delete-btn{
+  background: rgba(16, 22, 18, 0.6);
+}
+
+.card-delete-btn:hover{
+  background: #b71c1c;
+}
+
+.location-link{
+  color: var(--brand-2);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Modal styles */
+.modal.hidden{
+  display: none;
+}
+
+.modal{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.modal:not(.hidden){
+  pointer-events: auto;
+}
+
+.backdrop{
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+/* Community modal — tighter Instagram style */
+.modal-content.postview {
+  grid-template-columns: 1fr 0.9fr;
+  align-items: start;
+  gap: 0;                /* remove wide white gutter */
+  padding: 0;            /* no extra padding inside grid */
+}
+
+.modal-content.postview img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;      /* removes the rounded “white frame” look */
+  display: block;
+}
+
+
+
+/* Modal content */
+.modal-content{
+  position: relative;
+  z-index: 20;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  max-width: 1000px;
+  width: min(1000px, 92%);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-content.narrow{
+  grid-template-columns: 1fr;
+  max-width: 520px;
+  width: min(520px, 92%);
+}
+
+.modal-content img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-text{
+  padding: 16px;
+}
+
+.modal-text .muted{
+  color: var(--muted);
+}
+
+/* Reviews */
+.reviews{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.modal-close{
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn{
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Auth center */
+.auth.center{
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+/* Auth card */
+.card.pad{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  min-width: 320px;
+}
+
+.card.pad h2{
+  margin-bottom: 6px;
+}
+
+/* Form elements */
+label{
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+input,
+textarea,
+select{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+.form.small input{
+  padding: 8px 10px;
+}
+
+.muted{
+  color: var(--muted);
+}
+
+.small{
+  font-size: 13px;
+}
+
+/* Footer */
+.footer{
+  border-top: 1px solid var(--border);
+  margin-top: 36px;
+  padding: 18px 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Responsive rules — adjusts layout for mobile */
+@media (max-width: 900px){
+  .home .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content,
+  .modal-content.postview{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Category grid */
+.categories-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  padding: 1rem;
+}
+
+.cat-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.cat-card:hover{
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Liked button */
+#likeBtn.hearted{
+  color: #e63946;
+  transition: color 0.2s ease;
+}
+
+/* Dark theme images */
+:root[data-theme="dark"] img{
+  filter: brightness(0.85) contrast(1.05);
+  transition: filter 0.3s ease;
+}
+
+/* Profile card */
+.profile-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  margin: 5rem auto; 
+  box-shadow: var(--shadow);
+}
+
+/* Styles for .profile-pic */
+.profile-pic{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Profile card */
+.profile-card h3{
+  font-weight: 700;
+  margin: 0.8rem 0 0.4rem;
+}
+
+/* Tiny text */
+.tiny{
+  font-size: 0.85rem;
+  margin-top: 0.7rem;
+}
+

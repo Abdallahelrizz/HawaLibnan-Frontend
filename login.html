@@ -1,0 +1,52 @@
+<!-- Main HTML for login.html -->
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hawa Libnan · Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6 6 .9-4.5 4.4 1.1 6.3L12 16.8 6.4 19.6l1.1-6.3L3 8.9 9 8z" fill="currentColor"/></svg>
+        <span class="brand-text">Hawa Libnan</span>
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="categories.html">Categories</a>
+        <a href="community.html">Community</a>
+        <a href="profile.html">Profile</a>
+        <span class="spacer"></span>
+        <a id="loginLink" class="nav-cta" href="login.html">Login</a>
+        <a id="signupLink" class="signup-btn" href="signup.html">Sign up</a>
+        <button id="logoutBtn" class="btn ghost small hide">Logout</button>
+        <button id="themeToggle" class="btn ghost small" aria-label="Toggle theme">☀️</button>
+        <button id="guestBtn" class="btn ghost">Continue as Guest</button>
+      </nav>
+    </div>
+  </header>
+  
+<main class="auth center">
+  <form id="loginForm" class="card pad">
+    <h2>Login</h2>
+    <label>Email<input type="email" id="loginEmail" required></label>
+    <label>Password<input type="password" id="loginPassword" required></label>
+    <button class="btn primary" type="submit">Login</button>
+    <p class="muted small">No account? <a href="signup.html">Sign up</a></p>
+  </form>
+</main>
+
+  <footer class="footer">
+    <p>© 2025 Hawa Libnan · Explore responsibly</p>
+  </footer>
+</body>
+</html>
